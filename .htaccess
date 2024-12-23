@@ -1,0 +1,25 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(assets|panel)
+
+
+RewriteRule ^mesajlar/([0-9a-zA-Z-_]+)$ mesajlar.php?kisiid=$1 [L,QSA]
+
+RewriteRule ^sayfa/([0-9a-zA-Z-_]+)$ sayfadetay.php?link=$1 [L,QSA]
+RewriteRule ^blog/([0-9a-zA-Z-_]+)$ blogdetay.php?link=$1 [L,QSA]
+RewriteRule ^profil/([0-9a-zA-Z-_]+)$ profildetay.php?link=$1 [L,QSA]
+RewriteRule ^talep/([0-9a-zA-Z-_]+)/teklifver$ talepdetay.php?teklif=ver&talepno=$1 [L,QSA]
+RewriteRule ^talep/([0-9a-zA-Z-_]+)$ talepdetay.php?talepno=$1 [L,QSA]
+RewriteRule ^teklif-al/([0-9a-zA-Z-_]+)/([0-9a-zA-Z-_]+)/([0-9a-zA-Z-_]+)$ kategoridetay.php?il=$1&ilce=$2&link=$3 [L,QSA]
+RewriteRule ^teklif-al/([0-9a-zA-Z-_]+)/([0-9a-zA-Z-_]+)$ kategoridetay.php?il=$1&link=$2 [L,QSA]
+RewriteRule ^teklif-al/([0-9a-zA-Z-_]+)$ kategoridetay.php?link=$1 [L,QSA]
+RewriteRule ^([0-9a-zA-Z-_]+)$ $1.php [L,QSA]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php73” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
